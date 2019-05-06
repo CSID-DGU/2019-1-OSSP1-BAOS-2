@@ -2,8 +2,10 @@
 B-AOS Game
 
 ![BAOSTEAMLOGO](./client/BAOSTEAMLOGO.png)
-this is our BAOS Game Code.
 
-to do is making Engine and game Stage and Object.
 
-not Complete yet.
+This is our BAOS Game Code.
+
+To do is making Engine and game Stage and Object.
+
+Not Complete for now :)
