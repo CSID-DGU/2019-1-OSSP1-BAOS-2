@@ -5,4 +5,4 @@ this is our BAOS Game Code.
 
 to do is making Engine and game Stage and Object.
 
-not Complite yet.
+not Complete yet.
