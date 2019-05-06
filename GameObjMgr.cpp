@@ -12,7 +12,7 @@ CGameObjMgr::~CGameObjMgr(void)
 
 CGameObj* CGameObjMgr::Alloc( int iType )
 {
-	/*switch( iType )
+	switch( iType )
 	{
 		case EGAMEOBJ_TILE: return new CTile;
 		case EGAMEOBJ_BEGINEFFECT: return new CEffect;
@@ -23,23 +23,23 @@ CGameObj* CGameObjMgr::Alloc( int iType )
 		case EGAMEOBJ_EFFECT : return new CEffect;
 		case EGAMEOBJ_DARK : return new CDark;
 		case EGAMEOBJ_MINIDARK : return new CDark;
-	}*/
+	}
 
 	return NULL;
 }
 
 void CGameObjMgr::OnFrameMove( float fElapsedTime )
 {
-	/*for each( map< int, vector< CGameObj* >>::const_reference mr in m_mapObj )
-	{
-		OnFrameMove( mr.second, fElapsedTime );
+	//for each( map< int, vector< CGameObj* >>::const_reference mr in m_mapObj )
+	//{
+	//	OnFrameMove( mr.second, fElapsedTime );
 
-		if( m_setPlayObj.find( mr.first ) != m_setPlayObj.end() )
-			for each( vector<CGameObj*>::const_reference vr in mr.second )
-				NoneOverLap( vr );
-	}
+	//	if( m_setPlayObj.find( mr.first ) != m_setPlayObj.end() )
+	//		for each( vector<CGameObj*>::const_reference vr in mr.second )
+	//			NoneOverLap( vr );
+	//}
 
-	PostProcess();*/
+	//PostProcess();
 }
 
 void CGameObjMgr::OnFrameMove( const std::vector<CGameObj*> &vecObj, float fElapsedTime)
