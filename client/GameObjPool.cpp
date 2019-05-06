@@ -84,11 +84,11 @@ void CGameObjPool::LoadAniObj( wstring wID, wstring wFile )
 void CGameObjPool::LoadObj( wstring wID, wstring wFile )
 {
 	map< wstring, SObjData >::iterator mit = m_mapObj.find( wID );
-	if( mit != m_mapObj.end() )//map¿¡¼­ µ¥ÀÌÅÍ Ã£Áö ¸øÇßÀ» °æ¿ì
-		return;//
+	if( mit != m_mapObj.end() )	// mapì—ì„œ ë°ì´í„° ì°¾ì§€ ëª»í–ˆì„ ê²½ìš°
+		return;			// ERROR> ì°¾ê³ ì í•˜ëŠ” ë§µ data fileì´ ì—†ìŒ
 
-	SObjData sData;//
-	sData.Load( wFile );
+	SObjData sData;			// ì˜¤ë¸Œì íŠ¸ ini íŒŒì¼ ë³€ìˆ˜ ì„ ì–¸
+	sData.Load( wFile );		// ini íŒŒì¼ ì°¾ê¸° (data í´ë” / íŒŒì¼ëª….ini)
 
 	m_mapObj.insert( make_pair( wID, sData ));
 }
