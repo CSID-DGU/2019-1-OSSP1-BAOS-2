@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="DXUT">
+      <UniqueIdentifier>{a43c5c25-0e86-4a20-b64a-883785ff74fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
+      <Extensions>fx;fxh;hlsl</Extensions>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{1e5198fb-c116-4a52-b4b2-990d0f3a14e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DXUT\Optional\directx.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <ClInclude Include="DXUT\Core\DXUT.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Core\DXUTenum.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Core\DXUTmisc.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClCompile Include="DXUT\Core\DXUT.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Core\DXUTenum.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Core\DXUTmisc.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClInclude Include="DXUT\Optional\DXUTcamera.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\DXUTgui.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\DXUTres.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\DXUTsettingsdlg.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\SDKmesh.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\SDKmisc.h">
+      <Filter>DXUT</Filter>
+    </ClInclude>
+    <ClCompile Include="DXUT\Optional\DXUTcamera.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\DXUTgui.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\DXUTres.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\DXUTsettingsdlg.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\SDKmesh.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\SDKmisc.cpp">
+      <Filter>DXUT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EmptyProject3.cpp" />
+    <ClCompile Include="Camera.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFontMgr.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObj.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjMgr.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjPool.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStage.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTileMgr.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Debug.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FontList.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Home.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFontMgr.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjMgr.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjPool.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStage.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTileMgr.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="AniList.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CLInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </CLInclude>
+    <ResourceCompile Include="EmptyProject3.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
