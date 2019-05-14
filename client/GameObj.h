@@ -15,9 +15,7 @@ enum EGAME_RENDER
 	ERENDER_UI
 };
 
-class CRender {
-	//구현 필요
-};
+class CRender;
 
 class CGameObj : public CICameraObj
 {

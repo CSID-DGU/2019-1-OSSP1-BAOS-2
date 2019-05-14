@@ -30,7 +30,7 @@ CGameObj* CGameObjMgr::Alloc( int iType )
 
 void CGameObjMgr::OnFrameMove( float fElapsedTime )
 {
-	/*for each( map< int, vector< CGameObj* >>::const_reference mr in m_mapObj )
+	for each( map< int, vector< CGameObj* >>::const_reference mr in m_mapObj )
 	{
 		OnFrameMove( mr.second, fElapsedTime );
 
@@ -39,7 +39,7 @@ void CGameObjMgr::OnFrameMove( float fElapsedTime )
 				NoneOverLap( vr );
 	}
 
-	PostProcess();*/
+	PostProcess();
 }
 
 void CGameObjMgr::OnFrameMove( const std::vector<CGameObj*> &vecObj, float fElapsedTime)
@@ -52,7 +52,7 @@ void CGameObjMgr::OnFrameMove( const std::vector<CGameObj*> &vecObj, float fElap
 
 void CGameObjMgr::OnFrameRender()
 {
-	/*SetRenderList();
+	SetRenderList();
 
 	for each( map< int, vector<CGameObj*>>::const_reference mr in m_mapObj )
 	{
@@ -60,7 +60,7 @@ void CGameObjMgr::OnFrameRender()
 			OnFrameRender( mr.second );
 		else
 			ListFrameRender();
-	}*/
+	}
 }
 
 void CGameObjMgr::OnFrameRender(const std::vector<CGameObj*> &vecObj)
@@ -73,11 +73,11 @@ void CGameObjMgr::OnFrameRender(const std::vector<CGameObj*> &vecObj)
 
 void CGameObjMgr::ListFrameRender()
 {
-	/*set< float >::iterator sit = m_setRenderList.begin();
+	set< float >::iterator sit = m_setRenderList.begin();
 	for( sit; sit != m_setRenderList.end(); ++sit )
 	{
 		multimap< float, CGameObj* >::iterator mit = m_mapRenderObj.find( *sit );
 		if( mit != m_mapRenderObj.end() )
 			mit->second->OnFrameRender();
-	}*/
+	}
 }

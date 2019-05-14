@@ -9,7 +9,6 @@ enum
 	EGAMEOBJ_PLAYER,
 	EGAMEOBJ_CREATURE,
 
-
 	EGAMEOBJ_EFFECT,
 
 	EGAMEOBJ_HEALTH,
@@ -18,7 +17,7 @@ enum
 	EGAMEOBJ_MINIDARK
 };
 
-class CGameObjMgr
+class CGameObjMgr : public CGameObjContainer
 {
 private:
 	void OnFrameMove( const vector< CGameObj* >& vecObj, float fElapsedTime );
@@ -31,6 +30,7 @@ public:
 	CGameObj* pEnemyTower;
 	CGameObj* pFriendTower;
 
+public:
 	CGameObjMgr(void);
 	virtual ~CGameObjMgr(void);
 
@@ -38,4 +38,3 @@ public:
 	void OnFrameRender();
 	void ListFrameRender();
 };
-

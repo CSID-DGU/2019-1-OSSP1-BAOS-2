@@ -29,7 +29,7 @@ CGameObj::~CGameObj(void)
 	UnLoad();
 }
 
-void CGameObj::UnLoad()
+void CGameObj::UnLoad()S
 {
 	SAFE_DELETE( m_pRender );
 }
@@ -39,7 +39,7 @@ void CGameObj::OnFrameMove( float fElapsedTime )
 	if( m_pRender == NULL  )
 		return ;
 
-	//m_pRender->OnFrameMove( fElapsedTime );
+	m_pRender->OnFrameMove( fElapsedTime );
 }
 
 void CGameObj::OnFrameRender()
@@ -47,5 +47,5 @@ void CGameObj::OnFrameRender()
 	if( m_pRender == NULL   )
 		return ;
 
-	//m_pRender->OnFrameRender();
+	m_pRender->OnFrameRender();
 }

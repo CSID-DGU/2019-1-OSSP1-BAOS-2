@@ -48,7 +48,7 @@ void SAniObjData::Load( wstring wFile )
 	m_mapAni.insert( make_pair( AT_END, sAniEnd ));
 }
 
-void SObjData::Load( wstring wFile )//
+void SObjData::Load( wstring wFile )
 {
 	m_vScale.x = (float)GetPrivateProfileInt( L"Common", L"Scale_X", 100, wFile.c_str() ) * 0.01f;
 	m_vScale.y = (float)GetPrivateProfileInt( L"Common", L"Scale_Y", 100, wFile.c_str() ) * 0.01f;
@@ -84,11 +84,11 @@ void CGameObjPool::LoadAniObj( wstring wID, wstring wFile )
 void CGameObjPool::LoadObj( wstring wID, wstring wFile )
 {
 	map< wstring, SObjData >::iterator mit = m_mapObj.find( wID );
-	if( mit != m_mapObj.end() )	// map에서 데이터 찾지 못했을 경우
-		return;			// ERROR> 찾고자 하는 맵 data file이 없음
+	if( mit != m_mapObj.end() )
+		return ;
 
-	SObjData sData;			// 오브젝트 ini 파일 변수 선언
-	sData.Load( wFile );		// ini 파일 찾기 (data 폴더 / 파일명.ini)
+	SObjData sData;
+	sData.Load( wFile );
 
 	m_mapObj.insert( make_pair( wID, sData ));
 }
