@@ -17,8 +17,7 @@ B-AOS Game
 >> ProcessAniEvent.h + ProcessAniEvent.cpp
 
 ### GameArea
-#### Performing the function of organizing the maps and stages of the game.
->> 
+>> Performing the function of organizing the maps and stages of the game.
   * GameArea.h + GameArea.cpp
   * GameStage.h + GameStage.cpp
   * GameTileMgr.h + GameTileMgr.cpp
