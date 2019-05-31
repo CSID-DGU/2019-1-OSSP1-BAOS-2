@@ -18,11 +18,11 @@ B-AOS Game
 
 ### > GameArea
 ### >> Performing the function of organizing the maps and stages of the game.
->> GameArea.h + GameArea.cpp
->> GameStage.h + GameStage.cpp
->> GameTileMgr.h + GameTileMgr.cpp
->> Neos_Area.h + Neos_Area.cpp
->> Dark.h + Dark.cpp
+>> * GameArea.h + GameArea.cpp
+* GameStage.h + GameStage.cpp
+* GameTileMgr.h + GameTileMgr.cpp
+* Neos_Area.h + Neos_Area.cpp
+* Dark.h + Dark.cpp
 
 ### > GameObj
 ### >> Performing the function of importing, storing, and managing objects and ini-files of the game.
