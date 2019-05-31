@@ -3,21 +3,20 @@
 
 extern CMouse* g_pMouse;
 
-CCamera::CCamera(void):
-m_pObj( NULL ),
-	m_iWidth( 0 ),
-	m_iHeight( 0 ),
-	m_bUse( false ),
-	m_vPos( 0.0f, 0.0f )
+CCamera::CCamera(void)://카메라 생성
+	m_pObj( NULL ),//카메라 오브젝트 생성
+	m_iWidth( 0 ),//너비 설정
+	m_iHeight( 0 ),//높이 설정
+	m_bUse( false ),//사용중인지 아는 bool 자료형
+	m_vPos( 0.0f, 0.0f )//카메로 위치 설정
 {
 }
-
 
 CCamera::~CCamera(void)
 {
 }
 
-void CCamera::InitSize( int iWidth, int iHeight )
+void CCamera::InitSize( int iWidth, int iHeight )//카메라 초기 설정
 {
 	m_iWidth = iWidth;
 	m_iHeight = iHeight;
