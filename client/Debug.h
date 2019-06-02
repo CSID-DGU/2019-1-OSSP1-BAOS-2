@@ -1,6 +1,6 @@
 #pragma once
 
-class CDebug
+class CDebug//디버그 내용 출력하기 위한 클래스
 {
 
 public:
