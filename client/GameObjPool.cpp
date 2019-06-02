@@ -1,7 +1,7 @@
 #include "DXUT.h"
 #include "Home.h"
 
-void SAniData::Load( wstring wFile, wstring wAni )
+void SAniData::Load( wstring wFile, wstring wAni )//wFile에 맞는 wAni데이터 로드 
 {
 	WCHAR wcAni[MAX_PATH];
 	GetPrivateProfileString( wAni.c_str(), L"AniFile", L"", wcAni, MAX_PATH, wFile.c_str() );
@@ -10,6 +10,7 @@ void SAniData::Load( wstring wFile, wstring wAni )
 
 void SAniObjData::Load( wstring wFile )
 {
+	// wFile에 맞는 저장되어 있는 애니오브젝트데이터값 로드
 	m_vScale.x = (float)GetPrivateProfileInt( L"Common", L"Scale_X", 100, wFile.c_str() ) * 0.01f;
 	m_vScale.y = (float)GetPrivateProfileInt( L"Common", L"Scale_Y", 100, wFile.c_str() ) * 0.01f;
 
@@ -27,6 +28,8 @@ void SAniObjData::Load( wstring wFile )
 	m_iDamage = GetPrivateProfileInt( L"Common", L"Damage", 0, wFile.c_str() );
 	m_iScope = GetPrivateProfileInt( L"Common", L"Scope", 0, wFile.c_str() );
 
+	//애니메이션의 상태를 저장해줌
+	//평소상태, 걷는상태, 데미지를 입은 상태, 죽은 상태, 끝난 상태에 따라 저장
 	SAniData sAniNormal;
 	sAniNormal.Load( wFile, L"Normal" );
 	m_mapAni.insert( make_pair( AT_NORMAL, sAniNormal ));
@@ -50,6 +53,7 @@ void SAniObjData::Load( wstring wFile )
 
 void SObjData::Load( wstring wFile )
 {
+	//오브젝트 데이터 로드
 	m_vScale.x = (float)GetPrivateProfileInt( L"Common", L"Scale_X", 100, wFile.c_str() ) * 0.01f;
 	m_vScale.y = (float)GetPrivateProfileInt( L"Common", L"Scale_Y", 100, wFile.c_str() ) * 0.01f;
 
@@ -71,6 +75,7 @@ CGameObjPool::~CGameObjPool(void)
 
 void CGameObjPool::LoadAniObj( wstring wID, wstring wFile )
 { 
+	//애니 오브젝트 로드
 	map< wstring, SAniObjData >::iterator mit = m_mapAniObj.find( wID );
 	if( mit != m_mapAniObj.end() )
 		return ;
@@ -83,6 +88,7 @@ void CGameObjPool::LoadAniObj( wstring wID, wstring wFile )
 
 void CGameObjPool::LoadObj( wstring wID, wstring wFile )
 {
+	//오브젝트 로드
 	map< wstring, SObjData >::iterator mit = m_mapObj.find( wID );
 	if( mit != m_mapObj.end() )
 		return ;
@@ -95,6 +101,7 @@ void CGameObjPool::LoadObj( wstring wID, wstring wFile )
 
 const SAniObjData* CGameObjPool::GetAniObjData( wstring wID )
 {
+	//애니오브젝트 데이터 불러오기
 	map< wstring, SAniObjData >::iterator mit = m_mapAniObj.find( wID );
 	if( mit == m_mapAniObj.end() )
 		return NULL;
@@ -104,6 +111,7 @@ const SAniObjData* CGameObjPool::GetAniObjData( wstring wID )
 
 const SObjData* CGameObjPool::GetObjData( wstring wID )
 {
+	//오브젝트데이터 불러오기
 	map< wstring, SObjData >::iterator mit = m_mapObj.find( wID );
 	if( mit == m_mapObj.end() )
 		return NULL;
