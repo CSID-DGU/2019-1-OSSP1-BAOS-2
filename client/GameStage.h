@@ -1,41 +1,32 @@
 #pragma once
 
-enum MapName
+enum MapName//맵 이름
 {
 	EMAP_MENU,
 	EMAP_NEOS
 };
 
-class CGameArea : public CFSM {
-public:
-	CGameArea(int x=0) : info(x){}
-	~CGameArea(){}
+class CGameArea;
 
-	int info;
-	void OnFrameMove(float fElapsedTime);
-
-	friend class CGameStage;
-};
-
-class CGameStage : public CFSM
+class CGameStage : public CFSM//FSM에서 상속
 {
 private:
-	CGameArea* m_pGameArea;
+	CGameArea* m_pGameArea;//game Area 생성
 
 public:
-	int m_iCurMap;
-	int m_iNextMap;
+	int m_iCurMap;//현재 맵 index
+	int m_iNextMap;//다음 맵 index
 	
 public:
 	CGameStage(void);
 	virtual ~CGameStage(void);
 
-	CGameArea* GetGameArea() { return m_pGameArea; }
+	CGameArea* GetGameArea() { return m_pGameArea; }//GameArea 정보 불러오기
 
 	void Load();
 
-	void OnFrameMove( float fElapsedTime );
-	void OnChangeArea( int iMap );
+	void OnFrameMove( float fElapsedTime );//프레임 갱신
+	void OnChangeArea( int iMap );//게임 Area 전환
 
 public:
 	static void OnBeginMenu( DWORD dwObj );
@@ -43,6 +34,5 @@ public:
 
 	static void OnBeginNeos( DWORD dwObj );
 
-	friend class CGameArea;
 };
 

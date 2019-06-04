@@ -1,38 +1,39 @@
 #include "DXUT.h"
 #include "Home.h"
 
-extern CGameObjPool* g_pGameObjPool;
+extern GameDataMgr* g_pGameDataMgr;
 extern CGameObjMgr* g_pGameObjMgr;
 extern CGameTileMgr* g_pGameTileMgr;
 extern CTexture* g_pTexture;
 
-CGameStage::CGameStage(void):
+CGameStage::CGameStage(void)://gameStage ╩Щ╪╨юз ╧в цй╠Бх╜ ╨н╨п
 	m_pGameArea( NULL )
 {
-	AddState( EMAP_MENU, SFSMState((DWORD)this, OnBeginMenu, NULL, OnEndMenu ));
-	AddState( EMAP_NEOS, SFSMState( (DWORD)this,  OnBeginNeos, NULL, NULL ));
+	AddState( EMAP_MENU, SFSMState((DWORD)this, OnBeginMenu, NULL, OnEndMenu ));// ╦ч╢╨ ╦й ╩Себ цъ╟║
+	AddState( EMAP_NEOS, SFSMState( (DWORD)this,  OnBeginNeos, NULL, NULL ));	// neos ╦й ╩Себ цъ╟║
 }
+
 
 CGameStage::~CGameStage(void)
 {
 }
 
-void CGameStage::OnChangeArea( int iMap )
+void CGameStage::OnChangeArea( int iMap )//area юЭх╞
 {
 	if( OnChangeState( iMap ) == false )
 		return ;
 
-	SAFE_DELETE( m_pGameArea );
+	SAFE_DELETE( m_pGameArea );//гЖюГ ╟тюс area а╕╟е
 }
 
 void CGameStage::Load()
 {
-	OnChangeArea( EMAP_MENU );
+	OnChangeArea( EMAP_MENU );//╦ч╢╨ load
 }
 
-void CGameStage::OnFrameMove( float fElapsedTime )
+void CGameStage::OnFrameMove( float fElapsedTime )//Frame ╫г╫ц╟ё ╟╩╫е
 {
-	OnUpdateState( fElapsedTime );
+	OnUpdateState( fElapsedTime );//╩Себ ╬В╣╔юлф╝
 
 	OnChangeReserveState();
 
@@ -40,36 +41,50 @@ void CGameStage::OnFrameMove( float fElapsedTime )
 		m_pGameArea->OnFrameMove( fElapsedTime );
 }
 
-void CGameArea::OnFrameMove(float fElapsedTime) {
+void CGameStage::OnBeginMenu( DWORD dwObj )//╫цюш╫ц ╦ч╢╨ ╪Ёа╓
+{
+	CGameStage* pGameStage = (CGameStage*)dwObj;
+	pGameStage->m_iCurMap = 0;
+
+	//╫цюш╫ц гй©Дгя ╦ч╢╨ ©ю╨Йа╖ф╝ юЭ╨н ╥н╣Е 
+	g_pGameDataMgr->LoadObj( L"Tile", L"Data/Tile.ini" );
+	g_pGameDataMgr->LoadObj( L"Start", L"Data/UI/Menu/Start.ini" );
+	g_pGameDataMgr->LoadObj( L"End", L"Data/UI/Menu/End.ini" );
+	g_pGameDataMgr->LoadObj( L"Continue", L"Data/UI/Menu/Continue.ini" );
+	g_pGameDataMgr->LoadObj( L"Option", L"Data/UI/Menu/Option.ini" );
+	g_pGameDataMgr->LoadObj( L"GameName", L"Data/UI/Menu/GameName.ini" );
+	g_pGameDataMgr->LoadObj( L"GameImage", L"Data/UI/Menu/GameImage.ini" );
+	g_pGameDataMgr->LoadObj( L"MenuBackGround1", L"Data/UI/Menu/MenuBackGround1.ini" );
+	g_pGameDataMgr->LoadObj( L"MenuBackGround2", L"Data/UI/Menu/MenuBackGround2.ini" );
+	g_pGameDataMgr->LoadObj( L"Loading", L"Data/UI/Loading/Loading.ini" );
+
+
+	g_pGameObjMgr->UILoad( UI_NULL, L"GameName", L"UIMenu", D3DXVECTOR2( 12, 12 ), false, true );
+	g_pGameObjMgr->UILoad( UI_NULL, L"GameImage", L"UIMenu", D3DXVECTOR2( 12, 152 ), false, true );
+	g_pGameObjMgr->UILoad( UI_NULL, L"MenuBackGround1", L"UIMenu", D3DXVECTOR2( 580, 12 ), false, true );
+	g_pGameObjMgr->UILoad( UI_NULL, L"MenuBackGround2", L"UIMenu", D3DXVECTOR2( 580, 556 ), false, true );
+	g_pGameObjMgr->UILoad( UI_START, L"Start", L"UIMenu", D3DXVECTOR2( 596, 92 ), false, true );
+	//g_pGameObjMgr->UILoad( 0, L"Continue", L"UIMenu", D3DXVECTOR2( 596, 236 ), false, true );
+	//g_pGameObjMgr->UILoad( 0, L"Option", L"UIMenu", D3DXVECTOR2( 1270, 550 ), false, true );
+	//g_pGameObjMgr->UILoad( UI_EXIT, L"End", L"UIMenu", D3DXVECTOR2( 1270, 852 ), false, true );
 	
+	g_pGameDataMgr->LoadAniObj( L"Mouse", L"Data/UI/Mouse/Mouse.ini" );
+	g_pGameObjMgr->UILoad( UI_MOUSE, L"Mouse", L"Mouse", D3DXVECTOR2( 0, 0 ), true, true );
+
 
 }
 
-void CGameStage::OnBeginMenu( DWORD dwObj )
+void CGameStage::OnEndMenu( DWORD dwObj )//╦ч╢╨ ╩Себ╟║ Ё║Ё╣ю╩ ╟Ф©Л
 {
-	CGameStage* pGameStage = (CGameStage*)dwObj;	// КЁ─Л┬≤ Л└═Л√╦
-	pGameStage->m_iCurMap = 0;			// К╖╣ Л╩╓Л└° Л╢┬Й╦╟М≥■
-	
-	// TODO - ini М▄▄Л²╪К╙┘ЙЁ╪ Й╡╫К║°К┼■ Л╤■М⌡└ К▀╛К²╪Л╖┬ Л┬≤ Л·┬К▀╓К┼■ Л═░ К╙┘Л▀╛!
-
-	g_pGameObjPool->LoadObj( L"Tile", L"Data/Tile.ini" );
-	g_pGameObjPool->LoadObj( L"Start", L"Data/UI/Menu/Start.ini" );
-	g_pGameObjPool->LoadObj( L"End", L"Data/UI/Menu/End.ini" );
-	g_pGameObjPool->LoadObj( L"Continue", L"Data/UI/Menu/Continue.ini" );
-	g_pGameObjPool->LoadObj( L"Option", L"Data/UI/Menu/Option.ini" );
-	g_pGameObjPool->LoadObj( L"GameName", L"Data/UI/Menu/GameName.ini" );
-	g_pGameObjPool->LoadObj( L"GameImage", L"Data/UI/Menu/GameImage.ini" );
-	g_pGameObjPool->LoadObj( L"MenuBackGround1", L"Data/UI/Menu/MenuBackGround1.ini" );
-	g_pGameObjPool->LoadObj( L"Loading", L"Data/UI/Loading/Loading.ini" );
-
+	g_pGameObjMgr->Destroy( EGAMEOBJ_UI, L"UIMenu" );//╟тюс ©ю╨Йа╖ф╝ ui╦ч╢╨ а╕╟е
+	g_pTexture->Release();//╣╔юлем ЁУ╬фаэ
 }
 
-void CGameStage::OnEndMenu( DWORD dwObj )
+void CGameStage::OnBeginNeos( DWORD dwObj )//╨╩ ╟тюс ╦й ╫цюш
 {
+	CGameStage* pGameStage = (CGameStage*)dwObj;//╨╩ ╟тюс ╫╨евюлаЖ ╣©юШгр╢Г
+	pGameStage->m_pGameArea = new CNeos_Area( pGameStage );
 
-}	
-
-void CGameStage::OnBeginNeos( DWORD dwObj )
-{
-
+	pGameStage->m_pGameArea->Load();
+	pGameStage->m_iCurMap = EMAP_NEOS;//╟тюс╫╨евюлаЖ гЖюГ╩Себ©║ NEOS_MAP load
 }
