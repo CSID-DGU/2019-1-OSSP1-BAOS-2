@@ -1,6 +1,6 @@
 #pragma once
 
-class CCreature : public CAniObj
+class CCreature : public CAniObj//애니오브젝트 상속받아 Creature 생성
 {
 public:
 	CCreature(void);
