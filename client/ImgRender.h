@@ -1,20 +1,16 @@
 #pragma once
 
-class CImgRender : public CRender
+class CImgRender : public CRender//Render에서 상속
 {
-private:
+protected:
 	int m_iTexture;
 
 	void MakeLocal( D3DXMATRIX &matLocal );
-
-private:
-	CGameObj* m_pGameObj;
 
 public:
 	CImgRender( CGameObj* pGameObj );
 	virtual ~CImgRender(void);
 
-	virtual void SetDarkMode( D3DXVECTOR2 vPos, int iTexture );
 
 	virtual void Load( wstring wFile );
 	virtual bool OnFrameMove( float fElapsedTime );
