@@ -3,7 +3,7 @@
 class CBullet : public CAniObj
 {
 private:
-	D3DXVECTOR2 m_vDirectionVector;
+	D3DXVECTOR2 m_vDirectionVector;//√—æÀ πÊ«‚∫§≈Õ
 
 public:
 	CBullet();
