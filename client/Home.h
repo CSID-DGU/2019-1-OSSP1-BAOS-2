@@ -1,7 +1,6 @@
 #include < iostream >
 #include < vector >
 #include < set >
-#include < map >
 #include <fstream>
 #include < map >
 #include < list >
@@ -9,7 +8,6 @@
 #include < string >
 #include <algorithm >
 #include < sstream >
-#include <unordered_map>
 
 #define KEYDOWN( VK_CODE ) (GetAsyncKeyState( VK_CODE ) ? 1 : 0 )
 #define NULLVECTOR2 D3DXVECTOR2( -10.0f, -10.0f )
@@ -19,40 +17,75 @@ using namespace std;
 
 #include "FontList.h"
 #include "AniList.h"
+#include "UILIST.h"
+#include "GameSettingIndex.h"
 
 #include "Texture.h"
 #include "Sprite.h"
 #include "Camera.h"
 
-//2019 .5.6
+#include "GameObj.h"
+#include "./Render/Render.h"
+#include "./Render/ImgRender.h"
+#include "./Render/DarkRender.h"
+
+#include "GameDataMgr.h"
+
+#include "AniObj.h"
+#include "AniEvent.h"
+#include "ProcessAniEvent.h"
+
+#include "./Render/AniRender.h"
+#include "./Render/DirectionAniRender.h"
+
+#include "./Render/UIImgRender.h"
+#include "./Render/UIAniRender.h"
+
 #include "FSM.h"
-//#include "GameObjContainer.h"
+
+
 // == Controller
 
+#include "PathFinder.h"
+#include "GameObjController.h"
+
+#include "EricController.h"
+#include "TowerAI.h"
+
+#include "CreatureAI.h"
 
 // ===
 
-#include "GameFontMgr.h"
-#include "GameObj.h"
-#include "GameObjMgr.h"
-#include "GameObjPool.h"
-#include "GameTileMgr.h"
-#include "GameStage.h"
 
+#include "GameObjContainer.h"
+#include "GameObjMgr.h"
+
+#include "UIMgr.h"
+
+#include "GameFontMgr.h"
+#include "GameTileMgr.h"
+
+#include "GameStage.h"
+#include "GameArea.h"
 
 //--------------------------------GameArea
+#include "Neos_Area.h"
+
 
 #include "Mouse.h"
 #include "Debug.h"
 
+#include "Util.h"
+
 //----------------------------
 
-#include "AniObj.h"
-
-#include "Effect.h"
-#include "Tower.h"
 #include "Health.h"
+
+#include "Bullet.h"
+#include "Tower.h"
+#include "Effect.h"
+#include "Dark.h"
 #include "Creature.h"
 #include "Player.h"
-#include "Dark.h"
-#include "Tile.h"
+#include "Tile.h" 
+#include "UI.h"
