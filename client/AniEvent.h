@@ -13,15 +13,15 @@ struct SAniEventData
 	{
 	}
 
-	const wstring GetTextParam( int iIndex ) const
+	const wstring GetTextParam( int iIndex ) const//텍스트 변수 받아오기
 	{
-		if( iIndex < 0 || iIndex >= (int)m_vecTextParam.size() )
+		if( iIndex < 0 || iIndex >= (int)m_vecTextParam.size() )//변수 사이즈가 없거나 잘못 받아왔을 경우
 			return L"";
 
 		return m_vecTextParam[iIndex].c_str();
 	}
 
-	int GetIntParam( int iIndex ) const
+	int GetIntParam( int iIndex ) const//정수형 변수 받아오기
 	{
 		if( iIndex < 0 || iIndex >= (int)m_vecIntParam.size() )
 			return 0;
@@ -33,7 +33,7 @@ struct SAniEventData
 class CAniEvent
 {
 private:
-	map< int, vector< SAniEventData >> m_mapData;
+	map< int, vector< SAniEventData >> m_mapData;//map 자료구조로 Ani Event Data 저장
 
 	bool Load( wstring wFile, int iIndex );
 	
