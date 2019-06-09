@@ -1,9 +1,9 @@
 #pragma once
 
-class CEffect : public CAniObj
+class CEffect : public CAniObj//effect class
 {
 private:
-	CGameObj* m_pTarget;
+	CGameObj* m_pTarget;//타겟 오브젝트 생성
 
 public:
 	CEffect(void);
