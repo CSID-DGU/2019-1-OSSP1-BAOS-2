@@ -1,0 +1,2 @@
+[Common]
+ImgFile = Image/Tile/Circle (0).png
